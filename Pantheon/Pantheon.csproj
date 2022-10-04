@@ -54,5 +54,6 @@
     </Compile>
   </ItemGroup>
   
-  <Import Project="C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Microsoft\VisualStudio\v17.0\TextTemplating\Microsoft.TextTemplating.targets" />
+  <!--<Import Project="C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Microsoft\VisualStudio\v17.0\TextTemplating\Microsoft.TextTemplating.targets" />-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TextTemplating\Microsoft.TextTemplating.targets" />
 </Project>

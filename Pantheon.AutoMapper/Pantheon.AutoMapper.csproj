@@ -4,15 +4,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-	<PackageOutputPath>C:\DEV\GERT\LocalNuget</PackageOutputPath>
-	<GeneratePackageOnBuild>False</GeneratePackageOnBuild>
-	<Authors>Gert Dunon</Authors>
-	<Product>Pantheon</Product>
-	<NeutralLanguage>en</NeutralLanguage>
-	<Version>$(AssemblyVersion)</Version>
-	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-	<TransformOnBuild>true</TransformOnBuild>
-	<OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
+	  <PackageOutputPath>C:\DEV\GERT\LocalNuget</PackageOutputPath>
+	  <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	  <Authors>Gert Dunon</Authors>
+	  <Product>Pantheon</Product>
+	  <NeutralLanguage>en</NeutralLanguage>
+	  <Version>$(AssemblyVersion)</Version>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <TransformOnBuild>true</TransformOnBuild>
+	  <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
     <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
   </PropertyGroup>
 
