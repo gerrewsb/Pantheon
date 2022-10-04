@@ -1,0 +1,13 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+
+using System.Reflection;
+
+[assembly: AssemblyVersion("<#= this.Version  #>")]
+[assembly: AssemblyFileVersion("<#= this.Version  #>")]
+
+<#+
+
+ string Version = DateTime.UtcNow.ToString("yyyy.MM.dd.HHmm");
+
+#>
