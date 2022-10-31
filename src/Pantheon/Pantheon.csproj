@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+	  <PackageOutputPath>C:\DEV\GERT\LocalNuget</PackageOutputPath>
+	  <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+	  <Authors>Gert Dunon</Authors>
+	  <Product>Pantheon</Product>
+	  <NeutralLanguage>en</NeutralLanguage>
+	  <Version>$(AssemblyVersion)</Version>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	  <TransformOnBuild>true</TransformOnBuild>
+	  <OverwriteReadOnlyOutputFiles>true</OverwriteReadOnlyOutputFiles>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
+  </PropertyGroup>
+
+  <Target Name="NugetPackAutoVersioning" AfterTargets="Build">
+    <Exec Command="dotnet pack -p:PackageVersion=$([System.DateTime]::UtcNow.ToString(&quot;yyyy.MM.dd.HHmm&quot;)) --no-build --configuration $(Configuration) --output &quot;$(PackageOutputPath)&quot;" />
+  </Target>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="EFCore.BulkExtensions" Version="6.5.6" />
+    <PackageReference Include="FluentValidation" Version="11.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="6.0.0" />
+    <PackageReference Include="Moq" Version="4.18.2" />
+    <PackageReference Include="Scrutor" Version="4.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
+  </ItemGroup>
+
+  <!-- <ItemGroup> -->
+    <!-- <None Update="AutoVersioning.tt"> -->
+      <!-- <Generator>TextTemplatingFileGenerator</Generator> -->
+      <!-- <LastGenOutput>AutoVersioning.cs</LastGenOutput> -->
+    <!-- </None> -->
+  <!-- </ItemGroup> -->
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <!-- <ItemGroup> -->
+    <!-- <Compile Update="AutoVersioning.cs"> -->
+      <!-- <DesignTime>True</DesignTime> -->
+      <!-- <AutoGen>True</AutoGen> -->
+      <!-- <DependentUpon>AutoVersioning.tt</DependentUpon> -->
+    <!-- </Compile> -->
+  <!-- </ItemGroup> -->
+  
+  <!--<Import Project="C:\Program Files\Microsoft Visual Studio\2022\Professional\Msbuild\Microsoft\VisualStudio\v17.0\TextTemplating\Microsoft.TextTemplating.targets" />-->
+  <!--<Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TextTemplating\Microsoft.TextTemplating.targets" />-->
+</Project>
