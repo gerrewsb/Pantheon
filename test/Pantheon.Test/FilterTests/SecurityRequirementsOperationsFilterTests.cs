@@ -1,5 +1,7 @@
 ﻿using FluentAssertions;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Abstractions;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.OpenApi.Models;
 using Moq;
 using Pantheon.Filters;
@@ -27,7 +29,9 @@ namespace Pantheon.Test.FilterTests
 			var schemaGenerator = new Mock<ISchemaGenerator>();
 			var methodInfo = new Mock<MethodInfo>();
 			methodInfo.Setup(x => x.GetCustomAttributes(true)).Returns(new[] { new AuthorizeAttribute() });
-			OperationFilterContext context = new(new(), schemaGenerator.Object, new(), methodInfo.Object);
+			ActionDescriptor actionDescriptor = new() { EndpointMetadata = new List<object> { new AuthorizeAttribute() } };
+			ApiDescription apiDescription = new() { ActionDescriptor = actionDescriptor };
+			OperationFilterContext context = new(apiDescription, schemaGenerator.Object, new(), methodInfo.Object);
 			_filter.Apply(operation, context);
 
 			operation.Responses.Should().HaveCount(2);
@@ -42,7 +46,9 @@ namespace Pantheon.Test.FilterTests
 			var schemaGenerator = new Mock<ISchemaGenerator>();
 			var methodInfo = new Mock<MethodInfo>();
 			methodInfo.Setup(x => x.GetCustomAttributes(true)).Returns(Array.Empty<object>());
-			OperationFilterContext context = new(new(), schemaGenerator.Object, new(), methodInfo.Object);
+			ActionDescriptor actionDescriptor = new() { EndpointMetadata = new List<object> { } };
+			ApiDescription apiDescription = new() { ActionDescriptor = actionDescriptor };
+			OperationFilterContext context = new(apiDescription, schemaGenerator.Object, new(), methodInfo.Object);
 			_filter.Apply(operation, context);
 
 			operation.Responses.Should().HaveCount(0);

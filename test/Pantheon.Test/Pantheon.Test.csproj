@@ -24,9 +24,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Pantheon.EntityFrameworkCore\Pantheon.EntityFrameworkCore.csproj" />
-    <ProjectReference Include="..\Pantheon.UI\Pantheon.UI.csproj" />
-    <ProjectReference Include="..\Pantheon\Pantheon.csproj" />
+    <ProjectReference Include="..\..\src\Pantheon.EntityFrameworkCore\Pantheon.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\src\Pantheon.UI\Pantheon.UI.csproj" />
+    <ProjectReference Include="..\..\src\Pantheon\Pantheon.csproj" />
   </ItemGroup>
 
 </Project>
